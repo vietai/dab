@@ -40,7 +40,7 @@ python t2t_trainer.py --data_dir=path/to/tfrecords --problem=translate_vien_iwsl
 
 # Back translate from a text file.
 
-We have trained two translation models (`vien` and `envi`) using the `tiny` setting of `tensor2tensor`'s Transformer. and put it on Google Cloud Storage with public access for you to use.
+We have trained two translation models (`vien` and `envi`) using the `tiny` setting of `tensor2tensor`'s Transformer, and put it on Google Cloud Storage with public access for you to use.
 
 Here is an example of back translating Vietnamese -> English -> Vietnamese from an input text file.
 
@@ -49,3 +49,5 @@ python back_translate.py --lang=vi --decode_hparams="beam_size=4,alpha=0.6" --pa
 ```
 
 # Demo
+
+TODO(thtrieu)

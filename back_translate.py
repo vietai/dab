@@ -49,37 +49,6 @@ tf.flags.DEFINE_string(
 tf.flags.DEFINE_string('lang', 'vi', 'Language of the input text file (vi or en).')
 
 FLAGS = tf.flags.FLAGS
-
-
-# Here we need to define some dummy problems that do not have any decoding hook.
-# In T2T, the original problems will attempt to write to the pretrained checkpoint
-# directory (Google Cloud Storage). In general it is not possible to do so
-# as an anonymous user having read-only access to the Storage.
-
-
-@registry.register_problem
-class TranslateVienIwslt32kDecode(problems.TranslateVienIwslt32k):
-  """Problem spec for IWSLT'15 Vietnamese to English translation."""
-
-  @property
-  def decode_hooks(self):
-    return []
-
-  def dataset_filename(self):
-    return 'translate_vien_iwslt32k'
-  
-
-
-@registry.register_problem
-class TranslateEnviIwslt32kDecode(problems.translate_envi.TranslateEnviIwslt32k):
-  """Problem spec for IWSLT'15 English to Vietnamese translation."""
-
-  @property
-  def decode_hooks(self):
-    return []
-
-  def dataset_filename(self):
-    return 'translate_envi_iwslt32k'
   
 
 
