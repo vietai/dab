@@ -71,6 +71,12 @@ if __name__ == '__main__':
   else:
     raise ValueError('Not supported language: {}'.format(lang))
 
+  # Convert directory into checkpoints
+  if tf.gfile.IsDirectory(from_ckpt):
+    from_ckpt = tf.train.latest_checkpoint(from_ckpt)
+  if tf.gfile.IsDirectory(to_ckpt):
+    to_ckpt = tf.train.latest_checkpoint(to_ckpt)
+
   # For back translation, we need a temporary file in the other language
   # before back-translating into the source language.
   tmp_file = os.path.join(
