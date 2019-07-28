@@ -82,7 +82,7 @@ def decode(estimator,
 
   # We don't need to waste computation on empty lines:
   num_empty_lines = 0
-  while sorted_inputs[-1] == '':
+  while sorted_inputs and sorted_inputs[-1] == '':
     num_empty_lines += 1
     sorted_inputs.pop(-1)
 
