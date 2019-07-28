@@ -29,6 +29,7 @@ FLAGS = flags.FLAGS
 
 
 def decode(estimator,
+           problem_name,
            filename,
            hparams,
            decode_hp,
@@ -47,7 +48,6 @@ def decode(estimator,
   inputs_vocab_key = "inputs" if has_input else "targets"
   inputs_vocab = p_hp.vocabulary[inputs_vocab_key]
   targets_vocab = p_hp.vocabulary["targets"]
-  problem_name = FLAGS.problem
   filename = decoding._add_shard_to_filename(filename, decode_hp)
   tf.logging.info("Performing decoding from file (%s)." % filename)
   if has_input:
@@ -247,6 +247,7 @@ def t2t_decoder(problem_name, data_dir,
       decode_hparams=decode_hp,
       use_tpu=FLAGS.use_tpu)
 
-  decode(estimator, decode_from_file, hp, 
+  decode(estimator, problem_name,
+         decode_from_file, hp, 
          decode_hp, decode_to_file,
          checkpoint_path=checkpoint_path)
