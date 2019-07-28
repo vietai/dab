@@ -6,6 +6,8 @@ from __future__ import print_function
 
 from tensor2tensor.bin import t2t_decoder
 from tensor2tensor.models import transformer
+
+import decoding
 import problems
 import tensorflow as tf
 import os
@@ -15,11 +17,11 @@ registry = problems.registry
 
 tf.flags.DEFINE_string(
     'vien_problem', 
-    'translate_vien_iwslt32k_decode', 
+    'translate_vien_iwslt32k', 
     'Problem name for Vietnamese to English translation.')
 tf.flags.DEFINE_string(
     'envi_problem', 
-    'translate_envi_iwslt32k_decode', 
+    'translate_envi_iwslt32k', 
     'Problem name for English to Vietnamese translation.')
 tf.flags.DEFINE_string(
     'vien_data_dir', 
@@ -60,32 +62,28 @@ if __name__ == '__main__':
     from_data_dir, to_data_dir = FLAGS.vien_data_dir, FLAGS.envi_data_dir
     from_problem, to_problem = FLAGS.vien_problem, FLAGS.envi_problem
     from_ckpt, to_ckpt = FLAGS.vien_ckpt, FLAGS.envi_ckpt
+    proxy_lang = 'en'
   elif FLAGS.lang == 'en':
     from_data_dir, to_data_dir = FLAGS.envi_data_dir, FLAGS.vien_data_dir
     from_problem, to_problem = FLAGS.envi_problem, FLAGS.vien_problem
     from_ckpt, to_ckpt = FLAGS.envi_ckpt, FLAGS.vien_ckpt
+    proxy_lang = 'vi'
   else:
     raise ValueError('Not supported language: {}'.format(lang))
 
   # For back translation, we need a temporary file in the other language
   # before back-translating into the source language.
   tmp_file = os.path.join(
-      os.path.dirname(FLAGS.paraphrase_to_file), 
-      'tmp.{}'.format(FLAGS.paraphrase_from_file)
+      '{}.tmp.{}'.format(FLAGS.paraphrase_from_file, proxy_lang)
   )
 
   # Step 1: Translating from source language to the other language.
-  FLAGS.data_dir = from_data_dir
-  FLAGS.problem = from_problem
-  FLAGS.output_dir = from_ckpt
-  FLAGS.decode_from_file = FLAGS.paraphrase_from_file
-  FLAGS.decode_to_file = tmp_file
-  t2t_decoder.main(None)
+  if not tf.gfile.Exists(tmp_file):
+    decoding.t2t_decoder(from_problem, from_data_dir,
+                         FLAGS.paraphrase_from_file, tmp_file,
+                         from_ckpt)
 
   # Step 2: Translating from the other language (tmp_file) to source.
-  FLAGS.data_dir = to_data_dir
-  FLAGS.problem = to_problem
-  FLAGS.output_dir = to_ckpt
-  FLAGS.decode_from_file = tmp_file
-  FLAGS.decode_to_file = FLAGS.paraphrase_to_file
-  t2t_decoder.main(None)
+  decoding.t2t_decoder(to_problem, to_data_dir,
+                       tmp_file, FLAGS.paraphrase_to_file,
+                       to_ckpt)
