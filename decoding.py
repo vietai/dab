@@ -74,6 +74,7 @@ def decode(estimator,
   if tf.gfile.Exists(shuffle_file_path):
     with tf.gfile.Open(shuffle_file_path, 'r') as f:
       decodes = [line.strip() for line in f.readlines()]
+    tf.logging.info('Read {} sentences from checkpoint.'.format(len(decodes)))
 
   all_sorted_inputs = sorted_inputs
   # We only need to decode these inputs:
