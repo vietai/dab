@@ -218,11 +218,12 @@ def decode(estimator,
 
   # Print some decoding stats.
   duration = time.time() - start_time
-  tf.logging.info("Elapsed Time: %5.5f" % duration)
-  tf.logging.info("Averaged Single Token Generation Time: %5.7f "
-                  "(time %5.7f count %d)" %
-                  (total_time_per_step / total_cnt,
-                   total_time_per_step, total_cnt))
+  if total_cnt:
+    tf.logging.info("Elapsed Time: %5.5f" % duration)
+    tf.logging.info("Averaged Single Token Generation Time: %5.7f "
+                    "(time %5.7f count %d)" %
+                    (total_time_per_step / total_cnt,
+                     total_time_per_step, total_cnt))
   if decode_hp.batch_size == 1:
     tf.logging.info("Inference time %.4f seconds "
                     "(Latency = %.4f ms/setences)" %
