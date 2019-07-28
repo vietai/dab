@@ -130,7 +130,8 @@ def decode(estimator,
       except StopIteration:
         break
 
-  shuffle_file = tf.gfile.Open(shuffle_file_path, 'w')
+  writing_mode = 'a' if tf.gfile.Exists(shuffle_file_path) else 'w'
+  shuffle_file = tf.gfile.Open(shuffle_file_path, writing_mode)
   count = 0
   for elapsed_time, result in timer(result_iter):
     if decode_hp.return_beams:
