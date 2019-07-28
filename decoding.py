@@ -192,11 +192,6 @@ def decode(estimator,
     total_time_per_step += elapsed_time
     total_cnt += result["outputs"].shape[-1]
 
-  # Close and remove checkpoint.
-  shuffle_file.flush()
-  shuffle_file.close()
-  tf.gfile.Remove(shuffle_file_path)
-
   # Write the final output to file.
   outfile = tf.gfile.Open(decode_filename, "w")
   for index in range(len(all_sorted_inputs)):
@@ -204,6 +199,11 @@ def decode(estimator,
                             decode_hp.delimiter))
   outfile.flush()
   outfile.close()
+
+  # Close and remove checkpoint.
+  shuffle_file.flush()
+  shuffle_file.close()
+  tf.gfile.Remove(shuffle_file_path)
 
   # Print some decoding stats.
   duration = time.time() - start_time
