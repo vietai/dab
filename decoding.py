@@ -219,7 +219,7 @@ def decode(estimator,
                     (duration, num_sentences/duration))
 
 
-def t2t_decoder(problem, data_dir, 
+def t2t_decoder(problem_name, data_dir, 
                 decode_from_file, decode_to_file,
                 checkpoint_path):
   tf.logging.set_verbosity(tf.logging.INFO)
@@ -229,7 +229,7 @@ def t2t_decoder(problem, data_dir,
       FLAGS.hparams_set,
       FLAGS.hparams,
       data_dir=os.path.expanduser(data_dir),
-      problem_name=problem)
+      problem_name=problem_name)
 
   decode_hp = decoding.decode_hparams(FLAGS.decode_hparams)
   decode_hp.shards = FLAGS.decode_shards
