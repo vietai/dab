@@ -182,6 +182,8 @@ def decode(estimator,
     # Flush checkpoint to storage.
     count += 1
     if count % decode_hp.batch_size == 0:
+      tf.logging.info('Done {}/{}. Flushing.'.format(
+          count, len(sorted_inputs)))
       shuffle_file.flush()
       shuffle_file.close()
       shuffle_file = tf.gfile.Open(shuffle_file_path, 'w')
