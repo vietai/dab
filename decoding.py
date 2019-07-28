@@ -187,7 +187,7 @@ def decode(estimator,
           count, len(sorted_inputs)))
       shuffle_file.flush()
       shuffle_file.close()
-      shuffle_file = tf.gfile.Open(shuffle_file_path, 'w')
+      shuffle_file = tf.gfile.Open(shuffle_file_path, 'a')
 
     total_time_per_step += elapsed_time
     total_cnt += result["outputs"].shape[-1]
