@@ -80,7 +80,7 @@ if __name__ == '__main__':
   # For back translation, we need a temporary file in the other language
   # before back-translating into the source language.
   tmp_file = os.path.join(
-      '{}.tmp.{}'.format(FLAGS.paraphrase_from_file, proxy_lang)
+      '{}.tmp.{}.txt'.format(FLAGS.paraphrase_from_file, proxy_lang)
   )
 
   # Step 1: Translating from source language to the other language.

@@ -70,7 +70,7 @@ def decode(estimator,
 
   # Check for decoding checkpoint.
   decodes = []
-  shuffle_file_path = decode_filename + '.shuffle'
+  shuffle_file_path = decode_filename + '.shuffle.txt'
   if tf.gfile.Exists(shuffle_file_path):
     with tf.gfile.Open(shuffle_file_path, 'r') as f:
       decodes = [line.strip() for line in f.readlines()]
