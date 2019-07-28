@@ -80,6 +80,12 @@ def decode(estimator,
   # We only need to decode these inputs:
   sorted_inputs = sorted_inputs[len(decodes):]
 
+  # We don't need to waste computation on empty lines:
+  num_empty_lines = 0
+  while sorted_inputs[-1] == '':
+    num_empty_lines += 1
+    sorted_inputs.pop(-1)
+
   num_sentences = len(sorted_inputs)
   num_decode_batches = (num_sentences - 1) // decode_hp.batch_size + 1
 
@@ -192,6 +198,10 @@ def decode(estimator,
 
     total_time_per_step += elapsed_time
     total_cnt += result["outputs"].shape[-1]
+
+  for _ in range(num_empty_lines):
+    decodes.append('')
+    shuffle_file.write('\n')
 
   # Write the final output to file.
   outfile = tf.gfile.Open(decode_filename, "w")
