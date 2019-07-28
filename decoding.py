@@ -28,25 +28,6 @@ flags = tf.flags
 FLAGS = flags.FLAGS
 
 
-def create_hparams():
-  return trainer_lib.create_hparams(
-      FLAGS.hparams_set,
-      FLAGS.hparams,
-      data_dir=os.path.expanduser(FLAGS.data_dir),
-      problem_name=FLAGS.problem)
-
-
-def create_decode_hparams():
-  decode_hp = decoding.decode_hparams(FLAGS.decode_hparams)
-  decode_hp.shards = FLAGS.decode_shards
-  decode_hp.shard_id = FLAGS.worker_id
-  decode_in_memory = FLAGS.decode_in_memory or decode_hp.decode_in_memory
-  decode_hp.decode_in_memory = decode_in_memory
-  decode_hp.decode_to_file = FLAGS.decode_to_file
-  decode_hp.decode_reference = FLAGS.decode_reference
-  return decode_hp
-
-
 def decode(estimator,
            filename,
            hparams,
@@ -128,7 +109,7 @@ def decode(estimator,
           num_decode_batches, sorted_inputs,
           inputs_vocab, decode_hp.batch_size,
           decode_hp.max_input_size,
-          task_id=decode_hp.multiproblem_task_id, has_input=has_input)
+          task_id=-1, has_input=has_input)
       gen_fn = decoding.make_input_fn_from_generator(input_gen)
       example = gen_fn()
       return decoding._decode_input_tensor_to_features_dict(example, hparams)
@@ -236,7 +217,6 @@ def decode(estimator,
     tf.logging.info("Inference time %.4f seconds "
                     "(Throughput = %.4f sentences/second)" %
                     (duration, num_sentences/duration))
-
 
 
 def t2t_decoder(problem, data_dir, 
