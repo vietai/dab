@@ -57,3 +57,16 @@ python back_translate.py --lang=vi --decode_hparams="beam_size=4,alpha=0.6" --pa
 ```
 
 For a demonstration of augmenting real datasets with back-translation and obtaining actual gains in accuracy, checkout [this Google Colab](https://colab.research.google.com/drive/1_I0KvFlHFyBcTRT3Bfx9BGLJcIHGJNrG)!
+
+
+## BibTex
+
+
+```
+@article{trieu19backtranslate,
+  author  = {Trieu H. Trinh and Thang Le and Phat Hoang and Minh{-}Thang Luong},
+  title   = {Back Translation as Data Augmentation Tutorial},
+  journal = {https://github.com/vietai/back_translate},
+  year    = {2019},
+}
+```
