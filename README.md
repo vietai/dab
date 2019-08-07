@@ -1,12 +1,12 @@
 # Data augmentation with Back Translation. 
 
-This repository builds on the idea of back translation as a data augmentation method. The idea is simple: translating a sentence in one language to another and then back to the original language. This way one can multiply the size of any NLP dataset. 
+This repository builds on the idea of back translation as a data augmentation method. The idea is simple: translating a sentence in one language to another and then back to the original language. This way one can multiply the size of any NLP dataset. An example using our code is shown below:
 
 <p align="center"> <img src="gif/envien_demo.gif"/> </p>
 
 # Google Colaboratory Tutorials
 
-We have prepared here a series of Google Colabs Notebooks to walk you through how to use our code in real contexts. You will be shown how to make use of free computational and free storage resources.
+We have prepared here a series of Google Colabs Notebooks to walk you through how to use our code in very practical contexts and with the most accessible writing styles. For example, you will be shown how to make use of free computational and free storage resources to replicate all of our results. Here are the Colabs:
 
 * [Interactive Back Translation](https://colab.research.google.com/github/vietai/back_translate/blob/master/colabs/Interactive_Back_Translation.ipynb): A minimal Colab for you to play with our final results. We use this colab to generate the GIF you saw above.
 
