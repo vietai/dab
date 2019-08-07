@@ -2,7 +2,9 @@
 
 This repository builds on the idea of back translation as a data augmentation method. The idea is simple: translating a sentence in one language to another and then back to the original language. This way one can multiply the size of any NLP dataset. 
 
-<p align="center"> <img src="backtranslate_demo.gif"/> </p>
+<p align="center"> <img src="vienvi_demo.gif"/> </p>
+
+<p align="center"> <img src="envien_demo.gif"/> </p>
 
 In this work we focus on Vietnamese datasets since they are typically small in number and size. We present demonstrations of how to use the code in this repository as well as some other free resources through a series of Google Colab.
 
@@ -47,6 +49,8 @@ python t2t_trainer.py --data_dir=path/to/tfrecords --problem=translate_vien_iwsl
 ## Analyse the trained models
 
 Once you finished training and evaluating the models, you can certainly play around with them a bit. For example, you might want to run some interactive translation and/or visualize the attention masks for your inputs of choice. This is demonstrated in [this Google Colab](https://colab.research.google.com/drive/1WnQRAFof7P7tvJn_zyb1bIVvz3nBU2QM).
+
+<p align="center"> <img src="attn_viz.gif"/> </p>
 
 # Back translate from a text file.
 
