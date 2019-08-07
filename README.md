@@ -4,18 +4,6 @@ This repository builds on the idea of back translation as a data augmentation me
 
 <p align="center"> <img src="gif/envien_demo.gif"/> </p>
 
-We present demonstrations of how to use the code in this repository as well as some other free resources through a series of Google Colab. Initially we trained Vietnamese-English and English-Vietnamese models for back-translation. The code in this repository, however, can work with any other pair of languages. We therefore invite love, attention and **pull requests** from you on:
-
-* More and/or better translation models.
-
-* More and/or better translation data or monolingual data.
-
-* Code to make our code even easier to use!
-
-# Requirements
-
-We make use of the `tensor2tensor` library to build deep neural networks that perform translation.
-
 # Google Colaboratory Tutorials
 
 We have prepared here a series of Google Colabs Notebooks to walk you through how to use our code in real contexts. You will be shown how to make use of free computational and free storage resources.
@@ -45,7 +33,7 @@ We have prepared here a series of Google Colabs Notebooks to walk you through ho
 </table>
 
 
-This result is definitely not state-of-the-art, but is quite good and more importantly, good enough to be useful for the purpose of this project! Check the following Colabs to see how we make use of these translation models to improve results on small datasets:
+This result is definitely not state-of-the-art, but is quite good and more importantly, good enough to be useful for the purpose of this project! Check the following Colabs to see how we make use of these translation models to improve result on a real dataset:
 
 * [Analyse your Translation Models](https://colab.research.google.com/github/vietai/back_translate/blob/master/colabs/Vietnamese_Backtranslation_Model_Analysis.ipynb): Play with and visualize the trained models attention.
 
@@ -75,10 +63,23 @@ Here is another GIF demo with a Vietnamese sentence, for fun:
 
 <p align="center"> <img src="gif/vienvi_demo.gif"/> </p>
 
+# How to contribute?
+
+Initially we trained only Vietnamese-English and English-Vietnamese models for back-translation. The code in this repository, however, can work with any other pair of languages. We therefore invite love, attention and **pull requests** from you on:
+
+* More and/or better translation models.
+
+* More and/or better translation data or monolingual data.
+
+* Code to make our code even easier to use.
+
+* Texts/Illustrations to make our documentation even easier to understand.
+
+We will be working on a more detailed guideline for contribution.
 
 ## BibTex
 
-If you make use of code/resources provided in this project, please cite the following BibTex:
+If you make use of code/resources provided in this project, please cite using the following BibTex:
 
 ```
 @article{trieu19backtranslate,
@@ -89,7 +90,11 @@ If you make use of code/resources provided in this project, please cite the foll
 }
 ```
 
-The rest of this `README` is for those who cannot have access to our Colab Notebook and/or only need to see the syntax of some commands to run our code.
+The remaining of this `README` is for those who cannot have access to our Colab Notebook and/or only need quick reference to the command syntax of our code.
+
+# Requirements
+
+We make use of the `tensor2tensor` library to build deep neural networks that perform translation.
 
 # Training the two translation models
 
