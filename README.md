@@ -24,12 +24,10 @@ We have prepared here a series of Google Colabs Notebooks to walk you through ho
 
 * [Training Translation Models](https://colab.research.google.com/github/vietai/back_translate/blob/master/colabs/T2T_translate_vi%3C_%3Een_tiny_tpu.ipynb): How to connect to GPU/TPU and Google Drive/Cloud storage, download training/testing data and train/evaluate your models. We use the IWSLT'15 dataset, `tiny` setting of the Transformer and off-the-shelf implementation from `tensor2tensor` and obtain the following result:
 
-<center>
 |                       | BLEU score      |
 |-----------------------|-----------------|
 | English to Vietnamese | 28.59           |
 | Vietnamese to English | 27.78           |
-</center>
 
 This result is definitely not state-of-the-art, but is quite good and more importantly, good enough to be useful for the purpose of this project! Check the following Colabs to see how we make use of these translation models to improve results on small datasets:
 
@@ -41,11 +39,9 @@ This result is definitely not state-of-the-art, but is quite good and more impor
 * [Use Translation Models to Augment An NLP Dataset](https://colab.research.google.com/github/vietai/back_translate/blob/master/colabs/Sentiment_Analysis_%2B_Back_translation.ipynb): See an example of how to augment a small NLP dataset in Vietnamese using your translation models and obtain real gains on test set. On a Vietnamese Sentiment Analysis dataset with only 10K examples, we use back-translation to double the training set size and obtain an improvement of near 2.5\% in absolute accuracy:
 
 
-<center>
 | Original set  | Augmented by Back Translation |
 |---------------|-------------------------------|
 | 83.48 %       | **85.91 %**                   |
-</center>
 
 
 Here is another GIF demo with a Vietnamese sentence, for fun:
