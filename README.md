@@ -2,7 +2,7 @@
 
 This repository builds on the idea of back translation as a data augmentation method. The idea is simple: translating a sentence in one language to another and then back to the original language. This way one can multiply the size of any NLP dataset. 
 
-<p align="center"> <img src="envien_demo.gif"/> </p>
+<p align="center"> <img src="gif/envien_demo.gif"/> </p>
 
 We present demonstrations of how to use the code in this repository as well as some other free resources through a series of Google Colab. Initially we trained Vietnamese-English and English-Vietnamese models for back-translation. The code in this repository, however, can work with any other pair of languages. We therefore invite love, attention and **pull requests** from you on:
 
@@ -27,13 +27,13 @@ We have prepared here a series of Google Colabs Notebooks to walk you through ho
 * [Analyse your Translation Models](https://colab.research.google.com/github/vietai/back_translate/blob/master/colabs/Vietnamese_Backtranslation_Model_Analysis.ipynb): Play with and visualize the trained models attention.
 
 
-<p align="center"> <img src="attn_viz.gif"/> </p>
+<p align="center"> <img src="gif/attn_viz.gif"/> </p>
 
 * [Use Translation Models to Augment An NLP Dataset](https://colab.research.google.com/github/vietai/back_translate/blob/master/colabs/Sentiment_Analysis_%2B_Back_translation.ipynb): See an example of how to augment a small NLP dataset in Vietnamese using your translation models and obtain real gains on test set.
 
 Here is another GIF demo with a Vietnamese sentence, for fun:
 
-<p align="center"> <img src="vienvi_demo.gif"/> </p>
+<p align="center"> <img src="gif/vienvi_demo.gif"/> </p>
 
 
 ## BibTex
