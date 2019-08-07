@@ -29,9 +29,9 @@ We have prepared here a series of Google Colabs Notebooks to walk you through ho
 
 <p align="center"> <img src="attn_viz.gif"/> </p>
 
-* [Use Translation Models to Augment An NLP Dataset](https://colab.research.google.com/github/vietai/back_translate/blob/master/colabs/Sentiment_Analysis_%2B_Back_translation.ipynb): See an example of how to augment an NLP dataset using your translation models and obtain real gains on test set.
+* [Use Translation Models to Augment An NLP Dataset](https://colab.research.google.com/github/vietai/back_translate/blob/master/colabs/Sentiment_Analysis_%2B_Back_translation.ipynb): See an example of how to augment a small NLP dataset in Vietnamese using your translation models and obtain real gains on test set.
 
-Another GIF demo with a Vietnamese sentence, for fun :)
+Here is another GIF demo with a Vietnamese sentence, for fun:
 
 <p align="center"> <img src="vienvi_demo.gif"/> </p>
 
