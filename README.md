@@ -65,7 +65,7 @@ Here is another GIF demo with a Vietnamese sentence, for fun:
 
 # How to contribute?
 
-Initially we trained only Vietnamese-English and English-Vietnamese models for back-translation. The code in this repository, however, can work with any other pair of languages. We therefore invite love, attention and **pull requests** from you on:
+Initially we trained only Vietnamese-English and English-Vietnamese models for back-translation. The code in this repository, however, can work with any other pair of languages. We therefore invite **pull requests** from you on:
 
 * More and/or better translation models.
 
@@ -90,7 +90,7 @@ If you make use of code/resources provided in this project, please cite using th
 }
 ```
 
-The remaining of this `README` is for those who cannot have access to our Colab Notebook and/or only need quick reference to the command syntax of our code.
+The remaining of this `README` is for those who cannot have access to our Colab Notebooks and/or only need a quick reference to the command syntax of our code.
 
 # Requirements
 
