@@ -8,9 +8,9 @@ This repository builds on the idea of back translation as a data augmentation me
 
 We have prepared here a series of Google Colabs Notebooks to walk you through how to use our code in very practical contexts and with the most accessible writing styles. For example, you will be shown how to make use of free computational and free storage resources to replicate all of our results. Here are the Colabs:
 
-* [Interactive Back Translation](https://colab.research.google.com/github/vietai/back_translate/blob/master/colabs/Interactive_Back_Translation.ipynb): A minimal Colab for you to play with our final results. We use this colab to generate the GIF you saw above.
+* [Interactive Back Translation](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Interactive_Back_Translation.ipynb): A minimal Colab for you to play with our final results. We use this colab to generate the GIF you saw above.
 
-* [Training Translation Models](https://colab.research.google.com/github/vietai/back_translate/blob/master/colabs/T2T_translate_vi%3C_%3Een_tiny_tpu.ipynb): How to connect to GPU/TPU and Google Drive/Cloud storage, download training/testing data and train/evaluate your models. We use the IWSLT'15 dataset, `tiny` setting of the Transformer and off-the-shelf implementation from `tensor2tensor` and obtain the following result:
+* [Training Translation Models](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/T2T_translate_vi%3C_%3Een_tiny_tpu.ipynb): How to connect to GPU/TPU and Google Drive/Cloud storage, download training/testing data and train/evaluate your models. We use the IWSLT'15 dataset, `tiny` setting of the Transformer and off-the-shelf implementation from `tensor2tensor` and obtain the following result:
 
 
 <table align="center">
@@ -35,12 +35,12 @@ We have prepared here a series of Google Colabs Notebooks to walk you through ho
 
 This result is definitely not state-of-the-art, but is quite good and more importantly, good enough to be useful for the purpose of this project! Check the following Colabs to see how we make use of these translation models to improve result on a real dataset:
 
-* [Analyse your Translation Models](https://colab.research.google.com/github/vietai/back_translate/blob/master/colabs/Vietnamese_Backtranslation_Model_Analysis.ipynb): Play with and visualize the trained models attention.
+* [Analyse your Translation Models](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Vietnamese_Backtranslation_Model_Analysis.ipynb): Play with and visualize the trained models attention.
 
 
 <p align="center"> <img src="gif/attn_viz.gif"/> </p>
 
-* [Use Translation Models to Augment An NLP Dataset](https://colab.research.google.com/github/vietai/back_translate/blob/master/colabs/Sentiment_Analysis_%2B_Back_translation.ipynb): See an example of how to augment a small NLP dataset in Vietnamese using your translation models and obtain real gains on test set. On a Vietnamese Sentiment Analysis dataset with only 10K examples, we use back-translation to double the training set size and obtain an improvement of near 2.5\% in absolute accuracy:
+* [Use Translation Models to Augment An NLP Dataset](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Sentiment_Analysis_%2B_Back_translation.ipynb): See an example of how to augment a small NLP dataset in Vietnamese using your translation models and obtain real gains on test set. On a Vietnamese Sentiment Analysis dataset with only 10K examples, we use back-translation to double the training set size and obtain an improvement of near 2.5\% in absolute accuracy:
 
 
 <table align="center">
@@ -98,7 +98,7 @@ We make use of the `tensor2tensor` library to build deep neural networks that pe
 
 # Training the two translation models
 
-A prerequisite to performing back-translation is to train two translation models: English to Vietnamese and Vietnamese to English. A demonstration of the following commands to generate data, train and evaluate the models can be found in [this Google Colab](https://colab.research.google.com/github/vietai/back_translate/blob/master/colabs/T2T_translate_vi%3C_%3Een_tiny_tpu.ipynb).
+A prerequisite to performing back-translation is to train two translation models: English to Vietnamese and Vietnamese to English. A demonstration of the following commands to generate data, train and evaluate the models can be found in [this Google Colab](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/T2T_translate_vi%3C_%3Een_tiny_tpu.ipynb).
 
 ## Generate data (tfrecords)
 
@@ -132,7 +132,7 @@ python t2t_trainer.py --data_dir=path/to/tfrecords --problem=translate_vien_iwsl
 
 ## Analyse the trained models
 
-Once you finished training and evaluating the models, you can certainly play around with them a bit. For example, you might want to run some interactive translation and/or visualize the attention masks for your inputs of choice. This is demonstrated in [this Google Colab](https://colab.research.google.com/github/vietai/back_translate/blob/master/colabs/Vietnamese_Backtranslation_Model_Analysis.ipynb).
+Once you finished training and evaluating the models, you can certainly play around with them a bit. For example, you might want to run some interactive translation and/or visualize the attention masks for your inputs of choice. This is demonstrated in [this Google Colab](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Vietnamese_Backtranslation_Model_Analysis.ipynb).
 
 # Back translate from a text file.
 
@@ -144,4 +144,4 @@ Here is an example of back translating Vietnamese -> English -> Vietnamese from 
 python back_translate.py --lang=vi --decode_hparams="beam_size=4,alpha=0.6" --paraphrase_from_file=test_input.vi --paraphrase_to_file=test_output.vi --model=transformer --hparams_set=transformer_tiny
 ```
 
-For a demonstration of augmenting real datasets with back-translation and obtaining actual gains in accuracy, checkout [this Google Colab](https://colab.research.google.com/github/vietai/back_translate/blob/master/colabs/Sentiment_Analysis_%2B_Back_translation.ipynb)!
+For a demonstration of augmenting real datasets with back-translation and obtaining actual gains in accuracy, checkout [this Google Colab](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Sentiment_Analysis_%2B_Back_translation.ipynb)!
