@@ -1,10 +1,10 @@
-# Data augmentation with Back Translation :sparkles:
+# :sparkles: Data augmentation with Back Translation :sparkles:
 
 This repository builds on the idea of back translation [1] as a data augmentation method [2, 3]. The idea is simple: translating a sentence in one language to another and then back to the original language. This way one can multiply the size of any NLP dataset. An example using our code is shown below:
 
 <p align="center"> <img src="gif/envien_demo.gif"/> </p>
 
-## Google Colaboratory Tutorials :sparkles:
+## Google Colaboratory Tutorials :notebook:
 
 We have prepared here a series of Google Colabs Notebooks to walk you through how to use our code in very practical contexts and with the most accessible writing styles. For example, you will be shown how to make use of free computational and free storage resources to replicate all of our results. Here are the Colabs:
 
@@ -63,7 +63,7 @@ Here is another GIF demo with a Vietnamese sentence, for fun :relaxed:
 
 <p align="center"> <img src="gif/vienvi_demo.gif"/> </p>
 
-## How to contribute?
+## How to contribute? :thinking:
 
 Initially we trained only Vietnamese-English and English-Vietnamese models for back-translation. The code in this repository, however, can work with any other pair of languages. We therefore invite :sparkling_heart: :hand: and **pull requests** from you on:
 
@@ -77,7 +77,7 @@ Initially we trained only Vietnamese-English and English-Vietnamese models for b
 
 We will be working on a more detailed guideline for contribution.
 
-## BibTex
+## BibTex :honeybee: :honeybee:
 
 If you make use of code/resources provided in this project, please cite using the following BibTex:
 
@@ -90,7 +90,7 @@ If you make use of code/resources provided in this project, please cite using th
 }
 ```
 
-## References
+## References :cherry_blossom:
 
 [1] Sennrich, Rico, Barry Haddow, and Alexandra Birch. "Improving neural machine translation models with monolingual data.", ACL 2016.
 
