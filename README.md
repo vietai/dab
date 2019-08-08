@@ -10,7 +10,7 @@ We have prepared here a series of Google Colabs Notebooks to walk you through ho
 
 * [Interactive Back Translation](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Interactive_Back_Translation.ipynb): A minimal Colab for you to play with our final results. We use this colab to generate the GIF you saw above.
 
-* [Training Translation Models](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/T2T_translate_vi%3C_%3Een_tiny_tpu.ipynb): How to connect to GPU/TPU and Google Drive/Cloud storage, download training/testing data and train/evaluate your models. We use the IWSLT'15 dataset, `tiny` setting of the Transformer and off-the-shelf implementation from `tensor2tensor` and obtain the following result:
+* [Training Translation Models](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/T2T_translate_vi%3C_%3Een_tiny_tpu.ipynb): How to connect to GPU/TPU and Google Drive/Cloud storage, download training/testing data from the internet and train/evaluate your models. We use the IWSLT'15 dataset, off-the-shelf implementation from `tensor2tensor` with its `transformer_tiny` setting and obtain the following result:
 
 
 <table align="center">
@@ -65,7 +65,7 @@ Here is another GIF demo with a Vietnamese sentence, for fun:
 
 ## How to contribute?
 
-Initially we trained only Vietnamese-English and English-Vietnamese models for back-translation. The code in this repository, however, can work with any other pair of languages. We therefore invite **pull requests** from you on:
+Initially we trained only Vietnamese-English and English-Vietnamese models for back-translation. The code in this repository, however, can work with any other pair of languages. We therefore invite :sparkling_heart: :hand: and **pull requests** from you on:
 
 * More and/or better translation models.
 
