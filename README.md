@@ -1,10 +1,10 @@
-# Data augmentation with Back Translation :sunglasses:
+# Data augmentation with Back Translation :sparkles:
 
 This repository builds on the idea of back translation [1] as a data augmentation method [2, 3]. The idea is simple: translating a sentence in one language to another and then back to the original language. This way one can multiply the size of any NLP dataset. An example using our code is shown below:
 
 <p align="center"> <img src="gif/envien_demo.gif"/> </p>
 
-## Google Colaboratory Tutorials :yum:
+## Google Colaboratory Tutorials :sparkles:
 
 We have prepared here a series of Google Colabs Notebooks to walk you through how to use our code in very practical contexts and with the most accessible writing styles. For example, you will be shown how to make use of free computational and free storage resources to replicate all of our results. Here are the Colabs:
 
@@ -59,7 +59,7 @@ As of this writing, the result above is already competitive with the state-of-th
 </table>
 
 
-Here is another GIF demo with a Vietnamese sentence, for fun:
+Here is another GIF demo with a Vietnamese sentence, for fun :relaxed:
 
 <p align="center"> <img src="gif/vienvi_demo.gif"/> </p>
 
@@ -67,13 +67,13 @@ Here is another GIF demo with a Vietnamese sentence, for fun:
 
 Initially we trained only Vietnamese-English and English-Vietnamese models for back-translation. The code in this repository, however, can work with any other pair of languages. We therefore invite :sparkling_heart: :hand: and **pull requests** from you on:
 
-* More and/or better translation models.
+:+1: More and/or better translation models.
 
-* More and/or better translation data or monolingual data.
+:+1: More and/or better translation data or monolingual data.
 
-* Code to make our code even easier to use. Including tests ([Travis](https://github.com/marketplace/travis-ci), [CodeCov](https://github.com/codecov)).
+:+1: Code to make our code even easier to use. Including tests ([Travis](https://github.com/marketplace/travis-ci), [CodeCov](https://github.com/codecov)).
 
-* Texts/Illustrations to make our documentation even easier to understand.
+:+1: Texts/Illustrations to make our documentation even easier to understand.
 
 We will be working on a more detailed guideline for contribution.
 
