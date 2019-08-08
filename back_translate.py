@@ -47,6 +47,10 @@ tf.flags.DEFINE_string(
     'paraphrase_to_file', 
     'test_output.vi', 
     'Output text file to paraphrase.')
+tf.flags.DEFINE_boolean(
+    'backtranslate_interactively',
+    False,
+    'Whether to back-translate interactively.')
 
 tf.flags.DEFINE_string('lang', 'vi', 'Language of the input text file (vi or en).')
 
@@ -77,19 +81,25 @@ if __name__ == '__main__':
   if tf.gfile.IsDirectory(to_ckpt):
     to_ckpt = tf.train.latest_checkpoint(to_ckpt)
 
-  # For back translation, we need a temporary file in the other language
-  # before back-translating into the source language.
-  tmp_file = os.path.join(
-      '{}.tmp.{}.txt'.format(FLAGS.paraphrase_from_file, proxy_lang)
-  )
+  if FLAGS.backtranslate_interactively:
+    decoding.backtranslate_interactively(
+        from_problem, to_problem,
+        from_data_dir, to_data_dir,
+        from_ckpt, to_ckpt)
+  else:
+    # For back translation from file, we need a temporary file in the other language
+    # before back-translating into the source language.
+    tmp_file = os.path.join(
+        '{}.tmp.{}.txt'.format(FLAGS.paraphrase_from_file, proxy_lang)
+    )
 
-  # Step 1: Translating from source language to the other language.
-  if not tf.gfile.Exists(tmp_file):
-    decoding.t2t_decoder(from_problem, from_data_dir,
-                         FLAGS.paraphrase_from_file, tmp_file,
-                         from_ckpt)
+    # Step 1: Translating from source language to the other language.
+    if not tf.gfile.Exists(tmp_file):
+      decoding.t2t_decoder(from_problem, from_data_dir,
+                           FLAGS.paraphrase_from_file, tmp_file,
+                           from_ckpt)
 
-  # Step 2: Translating from the other language (tmp_file) to source.
-  decoding.t2t_decoder(to_problem, to_data_dir,
-                       tmp_file, FLAGS.paraphrase_to_file,
-                       to_ckpt)
+    # Step 2: Translating from the other language (tmp_file) to source.
+    decoding.t2t_decoder(to_problem, to_data_dir,
+                         tmp_file, FLAGS.paraphrase_to_file,
+                         to_ckpt)

@@ -11,6 +11,7 @@ import operator
 import os
 import re
 import string
+import sys
 import time
 
 import numpy as np
@@ -28,13 +29,137 @@ flags = tf.flags
 FLAGS = flags.FLAGS
 
 
-def decode(estimator,
-           problem_name,
-           filename,
-           hparams,
-           decode_hp,
-           decode_to_file=None,
-           checkpoint_path=None):
+def create_hp_and_estimator(problem_name, data_dir, checkpoint_path):
+  tf.logging.set_verbosity(tf.logging.INFO)
+  trainer_lib.set_random_seed(FLAGS.random_seed)
+
+  hp = trainer_lib.create_hparams(
+      FLAGS.hparams_set,
+      FLAGS.hparams,
+      data_dir=os.path.expanduser(data_dir),
+      problem_name=problem_name)
+
+  decode_hp = decoding.decode_hparams(FLAGS.decode_hparams)
+  decode_hp.shards = FLAGS.decode_shards
+  decode_hp.shard_id = FLAGS.worker_id
+  decode_in_memory = FLAGS.decode_in_memory or decode_hp.decode_in_memory
+  decode_hp.decode_in_memory = decode_in_memory
+  decode_hp.decode_to_file = None
+  decode_hp.decode_reference = None
+
+  FLAGS.checkpoint_path = checkpoint_path
+  estimator = trainer_lib.create_estimator(
+      FLAGS.model,
+      hp,
+      t2t_trainer.create_run_config(hp),
+      decode_hparams=decode_hp,
+      use_tpu=FLAGS.use_tpu)
+  return hp, decode_hp, estimator
+
+
+def backtranslate_interactively(
+    from_problem, to_problem,
+    from_data_dir, to_data_dir,
+    from_ckpt, to_ckpt):
+  
+  from_hp, from_decode_hp, from_estimator = create_hp_and_estimator(
+      from_problem, from_data_dir, from_ckpt)
+  to_hp, to_decode_hp, to_estimator = create_hp_and_estimator(
+      to_problem, to_data_dir, to_ckpt)
+
+  def interactive_text_input():
+    while True:
+      if sys.version_info >= (3, 0):
+        input_text = input('>>> ')
+      else:
+        input_text = raw_input('>>> ')
+
+      if input_text == 'q':
+        break
+
+      yield input_text
+
+  intermediate_lang = decode_interactively(
+    from_estimator, interactive_text_input(), 
+    from_problem, from_hp, from_decode_hp, from_ckpt)
+
+  outputs = decode_interactively(
+    to_estimator, intermediate_lang, 
+    to_problem, to_hp, to_decode_hp, to_ckpt)
+
+  for output in outputs:
+    tf.logging.info('Paraphrased: {}'.format(output))
+
+
+def decode_interactively(estimator,
+                         input_generator,
+                         problem_name,
+                         hparams,
+                         decode_hp,
+                         checkpoint_path=None):
+  """Compute predictions on entries in filename and write them out."""
+  decode_hp.batch_size = 1
+  tf.logging.info(
+      "decode_hp.batch_size not specified; default=%d" % decode_hp.batch_size)
+
+  # Inputs vocabulary is set to targets if there are no inputs in the problem,
+  # e.g., for language models where the inputs are just a prefix of targets.
+  p_hp = hparams.problem_hparams
+  has_input = "inputs" in p_hp.vocabulary
+  inputs_vocab_key = "inputs" if has_input else "targets"
+  inputs_vocab = p_hp.vocabulary[inputs_vocab_key]
+  targets_vocab = p_hp.vocabulary["targets"]
+
+  length = getattr(hparams, "length", 0) or hparams.max_length
+
+  def input_fn_gen():
+    for line in input_generator:
+      if has_input:
+        ids = inputs_vocab.encode(line.strip()) + [1]
+      else:
+        ids = targets_vocab.encode(line)
+      if len(ids) < length:
+        ids.extend([0] * (length - len(ids)))
+      else:
+        ids = ids[:length]
+      np_ids = np.array(ids, dtype=np.int32)
+      yield dict(
+          inputs=np_ids.reshape((length, 1, 1))
+      )
+
+  def input_fn(params):
+    return tf.data.Dataset.from_generator(
+      input_fn_gen,
+      output_types=dict(
+          inputs=tf.int32,
+      ),
+      output_shapes=dict(
+          inputs=(length, 1, 1)
+      )
+    ).batch(1)
+
+  result_iter = estimator.predict(input_fn, checkpoint_path=checkpoint_path)
+
+  for result in result_iter:
+    _, decoded_outputs, _ = decoding.log_decode_results(
+        result["inputs"],
+        result["outputs"],
+        problem_name,
+        None,
+        inputs_vocab,
+        targets_vocab,
+        log_results=False,
+        skip_eos_postprocess=decode_hp.skip_eos_postprocess)
+    yield decoded_outputs
+
+
+def decode_from_text_file(estimator,
+                          problem_name,
+                          filename,
+                          hparams,
+                          decode_hp,
+                          decode_to_file=None,
+                          checkpoint_path=None):
   """Compute predictions on entries in filename and write them out."""
   if not decode_hp.batch_size:
     decode_hp.batch_size = 32
@@ -262,7 +387,8 @@ def t2t_decoder(problem_name, data_dir,
       decode_hparams=decode_hp,
       use_tpu=FLAGS.use_tpu)
 
-  decode(estimator, problem_name,
-         decode_from_file, hp, 
-         decode_hp, decode_to_file,
-         checkpoint_path=checkpoint_path)
+  decode_from_text_file(
+      estimator, problem_name,
+      decode_from_file, hp, 
+      decode_hp, decode_to_file,
+      checkpoint_path=checkpoint_path)
