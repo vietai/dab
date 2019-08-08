@@ -6,7 +6,7 @@ This repository builds on the idea of back translation [1] as a data augmentatio
 
 ## Google Colaboratory Tutorials :ant:
 
-We have prepared here a series of Google Colabs Notebooks to walk you through how to use our code in very practical contexts and with the most accessible writing styles. For example, you will be shown how to make use of free computational and free storage resources to replicate all of our results. Here are the Colabs:
+We have prepared here a series of Google Colabs Notebooks to walk you through how to use our code in very practical contexts and with the most accessible guidelines. For example, you will be shown how to make use of free computational and free storage resources to replicate all of our results. Here are the Colabs:
 
 :notebook: [Interactive Back Translation](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Interactive_Back_Translation.ipynb): A minimal Colab for you to play with our final results. We use this colab to generate the GIF you saw above.
 
