@@ -4,13 +4,13 @@ This repository builds on the idea of back translation [1] as a data augmentatio
 
 <p align="center"> <img src="gif/envien_demo.gif"/> </p>
 
-## Google Colaboratory Tutorials :notebook:
+## Google Colaboratory Tutorials :ant:
 
 We have prepared here a series of Google Colabs Notebooks to walk you through how to use our code in very practical contexts and with the most accessible writing styles. For example, you will be shown how to make use of free computational and free storage resources to replicate all of our results. Here are the Colabs:
 
-:fire: [Interactive Back Translation](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Interactive_Back_Translation.ipynb): A minimal Colab for you to play with our final results. We use this colab to generate the GIF you saw above.
+:notebook: [Interactive Back Translation](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Interactive_Back_Translation.ipynb): A minimal Colab for you to play with our final results. We use this colab to generate the GIF you saw above.
 
-:fire: [Training Translation Models](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/T2T_translate_vi%3C_%3Een_tiny_tpu.ipynb): How to connect to GPU/TPU and Google Drive/Cloud storage, download training/testing data from the internet and train/evaluate your models. We use the IWSLT'15 dataset, off-the-shelf implementation from `tensor2tensor` with its `transformer_tiny` setting and obtain the following result:
+:notebook: [Training Translation Models](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/T2T_translate_vi%3C_%3Een_tiny_tpu.ipynb): How to connect to GPU/TPU and Google Drive/Cloud storage, download training/testing data from the internet and train/evaluate your models. We use the IWSLT'15 dataset, off-the-shelf implementation from `tensor2tensor` with its `transformer_tiny` setting and obtain the following result:
 
 
 <table align="center">
@@ -35,12 +35,12 @@ We have prepared here a series of Google Colabs Notebooks to walk you through ho
 
 As of this writing, the result above is already competitive with the state-of-the-art (29.6 BLEU score) [4] without using semi-supervised or multi-task learning. More importantly, this result is good enough to be useful for the purpose of this project! Check the following Colabs to see how we make use of these translation models to improve result on a real dataset:
 
-:fire: [Analyse your Translation Models](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Vietnamese_Backtranslation_Model_Analysis.ipynb): Play with and visualize the trained models attention.
+:notebook: [Analyse your Translation Models](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Vietnamese_Backtranslation_Model_Analysis.ipynb): Play with and visualize the trained models attention.
 
 
 <p align="center"> <img src="gif/attn_viz.gif"/> </p>
 
-:fire: [Use Translation Models to Augment An NLP Dataset](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Sentiment_Analysis_%2B_Back_translation.ipynb): See an example of how to augment a small NLP dataset in Vietnamese using your translation models and obtain real gains on test set. On a Vietnamese Sentiment Analysis dataset with only 10K examples, we use back-translation to double the training set size and obtain an improvement of near 2.5\% in absolute accuracy:
+:notebook: [Use Translation Models to Augment An NLP Dataset](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Sentiment_Analysis_%2B_Back_translation.ipynb): See an example of how to augment a small NLP dataset in Vietnamese using your translation models and obtain real gains on test set. On a Vietnamese Sentiment Analysis dataset with only 10K examples, we use back-translation to double the training set size and obtain an improvement of near 2.5\% in absolute accuracy:
 
 
 <table align="center">
@@ -59,7 +59,7 @@ As of this writing, the result above is already competitive with the state-of-th
 </table>
 
 
-Here is another GIF demo with a Vietnamese sentence, for fun :relaxed:
+Here is another GIF demo with a Vietnamese sentence, for fun
 
 <p align="center"> <img src="gif/vienvi_demo.gif"/> </p>
 
@@ -67,13 +67,13 @@ Here is another GIF demo with a Vietnamese sentence, for fun :relaxed:
 
 Initially we trained only Vietnamese-English and English-Vietnamese models for back-translation. The code in this repository, however, can work with any other pair of languages. We therefore invite :sparkling_heart: :hand: and **pull requests** from you on:
 
-:+1: More and/or better translation models.
+:seedling: More and/or better translation models.
 
-:+1: More and/or better translation data or monolingual data.
+:seedling: More and/or better translation data or monolingual data.
 
-:+1: Code to make our code even easier to use. Including tests ([Travis](https://github.com/marketplace/travis-ci), [CodeCov](https://github.com/codecov)).
+:seedling: Code to make our code even easier to use. Including tests ([Travis](https://github.com/marketplace/travis-ci), [CodeCov](https://github.com/codecov)).
 
-:+1: Texts/Illustrations to make our documentation even easier to understand.
+:seedling: Texts/Illustrations to make our documentation even easier to understand.
 
 We will be working on a more detailed guideline for contribution.
 
