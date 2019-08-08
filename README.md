@@ -1,16 +1,16 @@
-# Data augmentation with Back Translation. 
+# Data augmentation with Back Translation :sunglasses:
 
 This repository builds on the idea of back translation [1] as a data augmentation method [2, 3]. The idea is simple: translating a sentence in one language to another and then back to the original language. This way one can multiply the size of any NLP dataset. An example using our code is shown below:
 
 <p align="center"> <img src="gif/envien_demo.gif"/> </p>
 
-## Google Colaboratory Tutorials
+## Google Colaboratory Tutorials :yum:
 
 We have prepared here a series of Google Colabs Notebooks to walk you through how to use our code in very practical contexts and with the most accessible writing styles. For example, you will be shown how to make use of free computational and free storage resources to replicate all of our results. Here are the Colabs:
 
-* [Interactive Back Translation](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Interactive_Back_Translation.ipynb): A minimal Colab for you to play with our final results. We use this colab to generate the GIF you saw above.
+:fire: [Interactive Back Translation](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Interactive_Back_Translation.ipynb): A minimal Colab for you to play with our final results. We use this colab to generate the GIF you saw above.
 
-* [Training Translation Models](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/T2T_translate_vi%3C_%3Een_tiny_tpu.ipynb): How to connect to GPU/TPU and Google Drive/Cloud storage, download training/testing data from the internet and train/evaluate your models. We use the IWSLT'15 dataset, off-the-shelf implementation from `tensor2tensor` with its `transformer_tiny` setting and obtain the following result:
+:fire: [Training Translation Models](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/T2T_translate_vi%3C_%3Een_tiny_tpu.ipynb): How to connect to GPU/TPU and Google Drive/Cloud storage, download training/testing data from the internet and train/evaluate your models. We use the IWSLT'15 dataset, off-the-shelf implementation from `tensor2tensor` with its `transformer_tiny` setting and obtain the following result:
 
 
 <table align="center">
@@ -35,12 +35,12 @@ We have prepared here a series of Google Colabs Notebooks to walk you through ho
 
 As of this writing, the result above is already competitive with the state-of-the-art (29.6 BLEU score) [4] without using semi-supervised or multi-task learning. More importantly, this result is good enough to be useful for the purpose of this project! Check the following Colabs to see how we make use of these translation models to improve result on a real dataset:
 
-* [Analyse your Translation Models](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Vietnamese_Backtranslation_Model_Analysis.ipynb): Play with and visualize the trained models attention.
+:fire: [Analyse your Translation Models](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Vietnamese_Backtranslation_Model_Analysis.ipynb): Play with and visualize the trained models attention.
 
 
 <p align="center"> <img src="gif/attn_viz.gif"/> </p>
 
-* [Use Translation Models to Augment An NLP Dataset](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Sentiment_Analysis_%2B_Back_translation.ipynb): See an example of how to augment a small NLP dataset in Vietnamese using your translation models and obtain real gains on test set. On a Vietnamese Sentiment Analysis dataset with only 10K examples, we use back-translation to double the training set size and obtain an improvement of near 2.5\% in absolute accuracy:
+:fire: [Use Translation Models to Augment An NLP Dataset](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Sentiment_Analysis_%2B_Back_translation.ipynb): See an example of how to augment a small NLP dataset in Vietnamese using your translation models and obtain real gains on test set. On a Vietnamese Sentiment Analysis dataset with only 10K examples, we use back-translation to double the training set size and obtain an improvement of near 2.5\% in absolute accuracy:
 
 
 <table align="center">
