@@ -1,6 +1,6 @@
 # Data augmentation with Back Translation. 
 
-This repository builds on the idea of back translation as a data augmentation method. The idea is simple: translating a sentence in one language to another and then back to the original language. This way one can multiply the size of any NLP dataset. An example using our code is shown below:
+This repository builds on the idea of back translation [1] as a data augmentation method [2, 3]. The idea is simple: translating a sentence in one language to another and then back to the original language. This way one can multiply the size of any NLP dataset. An example using our code is shown below:
 
 <p align="center"> <img src="gif/envien_demo.gif"/> </p>
 
@@ -23,7 +23,7 @@ We have prepared here a series of Google Colabs Notebooks to walk you through ho
 <tbody>
 <tr>
 <td>English to Vietnamese</td>
-<td>28.59</td>
+<td>28.65</td>
 </tr>
 <tr>
 <td>Vietnamese to English</td>
@@ -33,7 +33,7 @@ We have prepared here a series of Google Colabs Notebooks to walk you through ho
 </table>
 
 
-This result is definitely not state-of-the-art, but is quite good and more importantly, good enough to be useful for the purpose of this project! Check the following Colabs to see how we make use of these translation models to improve result on a real dataset:
+As of this writing, the result above is already competitive with the state-of-the-art (29.6 BLEU score) [4] without using semi-supervised or multi-task learning. More importantly, this result is good enough to be useful for the purpose of this project! Check the following Colabs to see how we make use of these translation models to improve result on a real dataset:
 
 * [Analyse your Translation Models](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Vietnamese_Backtranslation_Model_Analysis.ipynb): Play with and visualize the trained models attention.
 
@@ -90,17 +90,30 @@ If you make use of code/resources provided in this project, please cite using th
 }
 ```
 
+# References
+
+[1] Sennrich, Rico, Barry Haddow, and Alexandra Birch. "Improving neural machine translation models with monolingual data.", ACL 2016.
+
+[2] Edunov, Sergey, et al. "Understanding back-translation at scale.",  EMNLP 2018.
+
+[3] Xie, Qizhe, et al. "Unsupervised data augmentation." arXiv preprint arXiv:1904.12848 (2019).
+
+[4] Clark, Kevin, et al. "Semi-supervised sequence modeling with cross-view training.", EMNLP 2018.
+
+
+# Appendix: Command Syntaxes.
+
 The remaining of this `README` is for those who cannot have access to our Colab Notebooks and/or only need a quick reference to the command syntax of our code.
 
-# Requirements
+## Requirements
 
 We make use of the `tensor2tensor` library to build deep neural networks that perform translation.
 
-# Training the two translation models
+## Training the two translation models
 
 A prerequisite to performing back-translation is to train two translation models: English to Vietnamese and Vietnamese to English. A demonstration of the following commands to generate data, train and evaluate the models can be found in [this Google Colab](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/T2T_translate_vi%3C_%3Een_tiny_tpu.ipynb).
 
-## Generate data (tfrecords)
+### Generate data (tfrecords)
 
 For English -> Vietnamese
 
@@ -114,7 +127,7 @@ For Vietnamese -> English
 python t2t_datagen.py --data_dir=data/translate_vien_iwslt32k --tmp_dir=tmp/ --problem=translate_vien_iwslt32k
 ```
 
-## Train
+### Train
 
 Some examples to train your translation models with the Transformer architecture:
 
@@ -130,11 +143,11 @@ For Vietnamese -> English
 python t2t_trainer.py --data_dir=path/to/tfrecords --problem=translate_vien_iwslt32k --hparams_set=transformer_base --model=transformer --output_dir=path/to/ckpt/dir
 ```
 
-## Analyse the trained models
+### Analyse the trained models
 
 Once you finished training and evaluating the models, you can certainly play around with them a bit. For example, you might want to run some interactive translation and/or visualize the attention masks for your inputs of choice. This is demonstrated in [this Google Colab](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Vietnamese_Backtranslation_Model_Analysis.ipynb).
 
-# Back translate from a text file.
+## Back translate from a text file.
 
 We have trained two translation models (`vien` and `envi`) using the `tiny` setting of `tensor2tensor`'s Transformer, and put it on Google Cloud Storage with public access for you to use.
 
