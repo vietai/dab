@@ -23,17 +23,17 @@ We have prepared here a series of Google Colabs Notebooks to walk you through ho
 <tbody>
 <tr>
 <td>English to Vietnamese</td>
-<td>28.65</td>
+<td>28.7</td>
 </tr>
 <tr>
 <td>Vietnamese to English</td>
-<td>27.78</td>
+<td>27.8</td>
 </tr>
 </tbody>
 </table>
 
 
-As of this writing, the result above is already competitive with the state-of-the-art (29.6 BLEU score) [4] without using semi-supervised or multi-task learning. More importantly, this result is good enough to be useful for the purpose of this project! Check the following Colabs to see how we make use of these translation models to improve result on a real dataset:
+As of this writing, the result above is already competitive with the current state-of-the-art (29.6 BLEU score) [4], without using semi-supervised or multi-task learning. More importantly, this result is good enough to be useful for the purpose of this project! Check the following Colabs to see how we make use of these translation models to improve result on a real dataset:
 
 :notebook: [Analyse your Translation Models](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Vietnamese_Backtranslation_Model_Analysis.ipynb): Play with and visualize the trained models attention.
 
