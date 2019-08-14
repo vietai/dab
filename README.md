@@ -4,13 +4,79 @@ This repository builds on the idea of back translation [1] as a data augmentatio
 
 <p align="center"> <img src="gif/envien_demo_fast_v3.gif"/> </p>
 
-We included in this project trained translation models for English-Vietnamese and English-French in both directions.
+In this project we provide a nice interface for people to investigate backtranslation models interactively that works with any `tensor2tensor` checkpoints. Here we provide two sets of trained checkpoints:
 
-## Google Colaboratory Tutorials :ant:
+* English - Vietnamese: [envi](https://console.cloud.google.com/storage/browser/vien-translation/checkpoints/translate_envi_iwslt32k_tiny/avg/) [vien](https://console.cloud.google.com/storage/browser/vien-translation/checkpoints/translate_vien_iwslt32k_tiny/avg/)
 
-We have prepared here a series of Google Colabs Notebooks to walk you through how to use our code in very practical contexts and with the most accessible guidelines. For example, you will be shown how to make use of free computational and free storage resources to replicate all of our results. Here are the Colabs:
+* English - French: [enfr](https://console.cloud.google.com/storage/browser/vien-translation/checkpoints/translate_enfr_fren_uda/enfr/) [fren](https://console.cloud.google.com/storage/browser/vien-translation/checkpoints/translate_enfr_fren_uda/fren)
 
-:notebook: [Interactive Back Translation](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Interactive_Back_Translation.ipynb): A minimal Colab for you to play with our final results. We use this colab to generate the GIF you saw above.
+We also provide the option for doing back-translation in batch mode.
+
+## :notebook: Interactive Backtranslation.
+
+We use [this Colab Notebook](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Interactive_Back_Translation.ipynb) to generate the GIF you saw above.
+
+## :notebook: Case Study on Backtranslation for Low-resource Languages
+
+Unsupervised Data Augmentation[3] has demonstrated improvements for high-resource languages (English) with backtranslation. In this work, we conduct a case study for Vietnamese through the following [Colab Notebook](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Sentiment_Analysis_%2B_Back_translation.ipynb). 
+
+On a Sentiment Analysis dataset with only 10K examples, we use back-translation to double the training set size and obtain an improvement of near 2.5\% in absolute accuracy:
+
+
+<table align="center">
+<thead>
+<tr>
+<th>Original set</th>
+<th>Augmented by Back Translation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>83.48 %</td>
+<td><strong>85.91 %</strong></td>
+</tr>
+</tbody>
+</table>
+
+
+Here is another GIF demo with a Vietnamese sentence, for fun.
+
+<p align="center"> <img src="gif/vienvi_demo_fast.gif"/> </p>
+
+## How to contribute? :thinking:
+
+:seedling: More and/or better translation models. Checkout Appendix A for Colab Notebook tutorials on how to train translation models with `tensor2tensor`.
+
+:seedling: More and/or better translation data or monolingual data.
+
+:seedling: Code to make our code even easier to use. Including tests ([Travis](https://github.com/marketplace/travis-ci), [CodeCov](https://github.com/codecov)).
+
+:seedling: Texts/Illustrations to make our documentation even easier to understand.
+
+We will be working on a more detailed guideline for contribution.
+
+## :honeybee:  BibTex :honeybee:
+
+```
+@article{trieu19backtranslate,
+  author  = {Trieu H. Trinh and Thang Le and Phat Hoang and Minh{-}Thang Luong},
+  title   = {Back Translation as Data Augmentation Tutorial},
+  journal = {https://github.com/vietai/back_translate},
+  year    = {2019},
+}
+```
+
+## References :cherry_blossom:
+
+[1] Sennrich, Rico, Barry Haddow, and Alexandra Birch. "Improving neural machine translation models with monolingual data.", ACL 2016.
+
+[2] Edunov, Sergey, et al. "Understanding back-translation at scale.",  EMNLP 2018.
+
+[3] Xie, Qizhe, et al. "Unsupervised data augmentation." arXiv preprint arXiv:1904.12848 (2019).
+
+[4] Clark, Kevin, et al. "Semi-supervised sequence modeling with cross-view training.", EMNLP 2018.
+
+# Appendix A: Training and Evaluating Translation Models with `tensor2tensor`
 
 :notebook: [Training Translation Models](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/T2T_translate_vi%3C_%3Een_tiny_tpu.ipynb): How to connect to GPU/TPU and Google Drive/Cloud storage, download training/testing data from the internet and train/evaluate your models. We use the IWSLT'15 dataset for the English-Vietnamese pair, off-the-shelf Transformer implementation from `tensor2tensor` with its `transformer_tiny` setting and obtain the following result:
 
@@ -39,71 +105,10 @@ As of this writing, the result above is already competitive with the current sta
 
 :notebook: [Analyse your Translation Models](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Vietnamese_Backtranslation_Model_Analysis.ipynb): Play with and visualize the trained models attention.
 
-
 <p align="center"> <img src="gif/attn_viz.gif"/> </p>
 
-:notebook: [Use Translation Models to Augment An NLP Dataset](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Sentiment_Analysis_%2B_Back_translation.ipynb): See an example of how to augment a small NLP dataset in Vietnamese using your translation models and obtain real gains on test set. On a Vietnamese Sentiment Analysis dataset with only 10K examples, we use back-translation to double the training set size and obtain an improvement of near 2.5\% in absolute accuracy:
 
-
-<table align="center">
-<thead>
-<tr>
-<th>Original set</th>
-<th>Augmented by Back Translation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>83.48 %</td>
-<td><strong>85.91 %</strong></td>
-</tr>
-</tbody>
-</table>
-
-
-Here is another GIF demo with a Vietnamese sentence, for fun
-
-<p align="center"> <img src="gif/vienvi_demo_fast.gif"/> </p>
-
-## How to contribute? :thinking:
-
-Initially we trained only Vietnamese-English and English-Vietnamese models for back-translation. The code in this repository, however, can work with any other pair of languages. We therefore invite :sparkling_heart: :hand: and **pull requests** from you on:
-
-:seedling: More and/or better translation models.
-
-:seedling: More and/or better translation data or monolingual data.
-
-:seedling: Code to make our code even easier to use. Including tests ([Travis](https://github.com/marketplace/travis-ci), [CodeCov](https://github.com/codecov)).
-
-:seedling: Texts/Illustrations to make our documentation even easier to understand.
-
-We will be working on a more detailed guideline for contribution.
-
-## BibTex :honeybee: :honeybee:
-
-If you make use of code/resources provided in this project, please cite using the following BibTex:
-
-```
-@article{trieu19backtranslate,
-  author  = {Trieu H. Trinh and Thang Le and Phat Hoang and Minh{-}Thang Luong},
-  title   = {Back Translation as Data Augmentation Tutorial},
-  journal = {https://github.com/vietai/back_translate},
-  year    = {2019},
-}
-```
-
-## References :cherry_blossom:
-
-[1] Sennrich, Rico, Barry Haddow, and Alexandra Birch. "Improving neural machine translation models with monolingual data.", ACL 2016.
-
-[2] Edunov, Sergey, et al. "Understanding back-translation at scale.",  EMNLP 2018.
-
-[3] Xie, Qizhe, et al. "Unsupervised data augmentation." arXiv preprint arXiv:1904.12848 (2019).
-
-[4] Clark, Kevin, et al. "Semi-supervised sequence modeling with cross-view training.", EMNLP 2018.
-
-
-# Appendix: Command Syntaxes.
+# Appendix B: Command Syntaxes.
 
 The remaining of this `README` is for those who cannot have access to our Colab Notebooks and/or only need a quick reference to the command syntax of our code.
 
