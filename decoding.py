@@ -61,15 +61,11 @@ def backtranslate_interactively(
     from_data_dir, to_data_dir,
     from_ckpt, to_ckpt):
   
-  print('Loading from {} ..'.format(from_ckpt))
   from_hp, from_decode_hp, from_estimator = create_hp_and_estimator(
       from_problem, from_data_dir, from_ckpt)
   
-  print('Loading from {} ..'.format(to_ckpt))
   to_hp, to_decode_hp, to_estimator = create_hp_and_estimator(
       to_problem, to_data_dir, to_ckpt)
-
-  print('Done loading.')
 
   def interactive_text_input():
     while True:
@@ -83,14 +79,17 @@ def backtranslate_interactively(
 
       yield input_text
 
+  print('Loading from {} ..'.format(from_ckpt))
   intermediate_lang = decode_interactively(
     from_estimator, interactive_text_input(), 
     from_problem, from_hp, from_decode_hp, from_ckpt)
 
+  print('Loading from {} ..'.format(to_ckpt))
   outputs = decode_interactively(
     to_estimator, intermediate_lang, 
     to_problem, to_hp, to_decode_hp, to_ckpt)
 
+  print('Done.')
   for output in outputs:
     print('Paraphrased: {}'.format(output.replace('&apos;', "'")))
 
