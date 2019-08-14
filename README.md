@@ -2,7 +2,7 @@
 
 This repository builds on the idea of back translation [1] as a data augmentation method [2, 3]. The idea is simple: translating a sentence in one language to another and then back to the original language. This way one can multiply the size of any NLP dataset. An example using our code is shown below:
 
-<p align="center"> <img src="gif/envien_demo_fast_v2.gif"/> </p>
+<p align="center"> <img src="gif/envien_demo_fast_v3.gif"/> </p>
 
 ## Google Colaboratory Tutorials :ant:
 
