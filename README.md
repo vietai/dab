@@ -76,7 +76,7 @@ We will be working on a more detailed guideline for contribution.
 
 [4] Clark, Kevin, et al. "Semi-supervised sequence modeling with cross-view training.", EMNLP 2018.
 
-# Appendix A: Training and Evaluating Translation Models with `tensor2tensor`
+# Appendix A: Training Translation Models with `tensor2tensor`
 
 :notebook: [Training Translation Models](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/T2T_translate_vi%3C_%3Een_tiny_tpu.ipynb): How to connect to GPU/TPU and Google Drive/Cloud storage, download training/testing data from the internet and train/evaluate your models. We use the IWSLT'15 dataset for the English-Vietnamese pair, off-the-shelf Transformer implementation from `tensor2tensor` with its `transformer_tiny` setting and obtain the following result:
 
