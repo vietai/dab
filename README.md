@@ -10,7 +10,7 @@ In this project we provide a nice interface for people to investigate backtransl
 
 * English - French: [[en-fr]](https://console.cloud.google.com/storage/browser/vien-translation/checkpoints/translate_enfr_fren_uda/enfr/) [[fr-en]](https://console.cloud.google.com/storage/browser/vien-translation/checkpoints/translate_enfr_fren_uda/fren). This is taken from [github repository of UDA](https://github.com/google-research/uda).
 
-We also provide the option for doing back-translation in batch mode.
+We also provide the option for doing back-translation in batch mode, see [this section](https://github.com/vietai/back_translate#notebook-a-case-study-on-backtranslation-for-low-resource-languages).
 
 ## :notebook: Interactive Backtranslation.
 
@@ -39,7 +39,7 @@ On a Sentiment Analysis dataset with only 10K examples, we use back-translation 
 </table>
 
 
-Here is another GIF demo with a Vietnamese sentence, for fun.
+Here is another GIF demo with Vietnamese sentences - for fun ;)
 
 <p align="center"> <img src="gif/vienvi_demo_fast.gif"/> </p>
 
@@ -66,7 +66,7 @@ We will be working on a more detailed guideline for contribution.
 }
 ```
 
-## References :cherry_blossom:
+## :cherry_blossom: References :cherry_blossom:
 
 [1] Sennrich, Rico, Barry Haddow, and Alexandra Birch. "Improving neural machine translation models with monolingual data.", ACL 2016.
 
