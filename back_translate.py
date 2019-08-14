@@ -58,6 +58,7 @@ FLAGS = tf.flags.FLAGS
 
 if __name__ == '__main__':
   tf.logging.set_verbosity(tf.logging.ERROR)
+  os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
 
   # Convert directory into checkpoints
   if tf.gfile.IsDirectory(FLAGS.from_ckpt):
