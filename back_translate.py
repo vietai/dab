@@ -3,15 +3,18 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
+import os
+import tensorflow as tf
+
+# os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
+tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
+# logging.getLogger("tensorflow").setLevel(logging.ERROR)
 
 from tensor2tensor.bin import t2t_decoder
 from tensor2tensor.models import transformer
 
 import decoding
 import problems
-import tensorflow as tf
-import os
-
 
 registry = problems.registry
 
@@ -57,9 +60,6 @@ FLAGS = tf.flags.FLAGS
 
 
 if __name__ == '__main__':
-  tf.logging.set_verbosity(tf.logging.ERROR)
-  os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
-
   # Convert directory into checkpoints
   if tf.gfile.IsDirectory(FLAGS.from_ckpt):
     from_ckpt = tf.train.latest_checkpoint(FLAGS.from_ckpt)
