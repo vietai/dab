@@ -4,6 +4,8 @@ This repository builds on the idea of back translation [1] as a data augmentatio
 
 <p align="center"> <img src="gif/envien_demo_fast_v3.gif"/> </p>
 
+We included in this project trained translation models for English-Vietnamese and English-French in both directions.
+
 ## Google Colaboratory Tutorials :ant:
 
 We have prepared here a series of Google Colabs Notebooks to walk you through how to use our code in very practical contexts and with the most accessible guidelines. For example, you will be shown how to make use of free computational and free storage resources to replicate all of our results. Here are the Colabs:
