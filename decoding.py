@@ -89,7 +89,6 @@ def backtranslate_interactively(
     to_estimator, intermediate_lang, 
     to_problem, to_hp, to_decode_hp, to_ckpt)
 
-  print('Done.')
   for output in outputs:
     print('Paraphrased: {}'.format(output.replace('&apos;', "'")))
 
