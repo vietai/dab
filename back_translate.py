@@ -57,6 +57,8 @@ FLAGS = tf.flags.FLAGS
 
 
 if __name__ == '__main__':
+  tf.logging.set_verbosity(tf.logging.ERROR)
+
   # Convert directory into checkpoints
   if tf.gfile.IsDirectory(FLAGS.from_ckpt):
     from_ckpt = tf.train.latest_checkpoint(FLAGS.from_ckpt)
