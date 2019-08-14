@@ -10,7 +10,7 @@ We have prepared here a series of Google Colabs Notebooks to walk you through ho
 
 :notebook: [Interactive Back Translation](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Interactive_Back_Translation.ipynb): A minimal Colab for you to play with our final results. We use this colab to generate the GIF you saw above.
 
-:notebook: [Training Translation Models](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/T2T_translate_vi%3C_%3Een_tiny_tpu.ipynb): How to connect to GPU/TPU and Google Drive/Cloud storage, download training/testing data from the internet and train/evaluate your models. We use the IWSLT'15 dataset, off-the-shelf implementation from `tensor2tensor` with its `transformer_tiny` setting and obtain the following result:
+:notebook: [Training Translation Models](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/T2T_translate_vi%3C_%3Een_tiny_tpu.ipynb): How to connect to GPU/TPU and Google Drive/Cloud storage, download training/testing data from the internet and train/evaluate your models. We use the IWSLT'15 dataset for the English-Vietnamese pair, off-the-shelf Transformer implementation from `tensor2tensor` with its `transformer_tiny` setting and obtain the following result:
 
 
 <table align="center">
@@ -33,7 +33,7 @@ We have prepared here a series of Google Colabs Notebooks to walk you through ho
 </table>
 
 
-As of this writing, the result above is already competitive with the current state-of-the-art (29.6 BLEU score) [4], without using semi-supervised or multi-task learning. More importantly, this result is good enough to be useful for the purpose of this project! Check the following Colabs to see how we make use of these translation models to improve result on a real dataset:
+As of this writing, the result above is already competitive with the current state-of-the-art (29.6 BLEU score) [4], without using semi-supervised or multi-task learning. More importantly, this result is good enough to be useful for the purpose of this project! For English-French, we use the `transformer_big` provided in the [open-source implementation](https://github.com/google-research/uda) of Unsupervised Data Augmentation [3].
 
 :notebook: [Analyse your Translation Models](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Vietnamese_Backtranslation_Model_Analysis.ipynb): Play with and visualize the trained models attention.
 
