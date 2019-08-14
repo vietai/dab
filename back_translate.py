@@ -6,9 +6,7 @@ from __future__ import print_function
 import os
 import tensorflow as tf
 
-# os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
-tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
-# logging.getLogger("tensorflow").setLevel(logging.ERROR)
+# tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
 
 from tensor2tensor.bin import t2t_decoder
 from tensor2tensor.models import transformer
