@@ -4,7 +4,7 @@ This repository builds on the idea of back translation [1] as a data augmentatio
 
 <p align="center"> <img src="gif/envien_demo_fast_v3.gif"/> </p>
 
-In this project we provide a nice interface for people to investigate backtranslation models interactively that works with any `tensor2tensor` checkpoints. Here we provide two sets of trained checkpoints:
+In this project we provide a nice interface for people to investigate back-translation models interactively that works with any `tensor2tensor` checkpoints. Here we provide two sets of trained checkpoints:
 
 * English - Vietnamese: [[en-vi]](https://console.cloud.google.com/storage/browser/vien-translation/checkpoints/translate_envi_iwslt32k_tiny/avg/) [[vi-en]](https://console.cloud.google.com/storage/browser/vien-translation/checkpoints/translate_vien_iwslt32k_tiny/avg/). See [Appendix A](https://github.com/vietai/back_translate#appendix-a-training-translation-models-with-tensor2tensor) for how to train and visualize translation models.
 
@@ -12,13 +12,13 @@ In this project we provide a nice interface for people to investigate backtransl
 
 We also provide the option for doing back-translation in batch mode, see [this section](https://github.com/vietai/back_translate#notebook-a-case-study-on-backtranslation-for-low-resource-languages).
 
-## :notebook: Interactive Backtranslation.
+## :notebook: Interactive Back-translation.
 
 We use [this Colab Notebook](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Interactive_Back_Translation.ipynb) to generate the GIF you saw above.
 
-## :notebook: A Case Study on Backtranslation for Low-resource Languages
+## :notebook: A Case Study on Back-translation for Low-resource Languages
 
-Unsupervised Data Augmentation[3] has demonstrated improvements for high-resource languages (English) with backtranslation. In this work, we conduct a case study for Vietnamese through the following [Colab Notebook](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Sentiment_Analysis_%2B_Back_translation.ipynb). 
+Unsupervised Data Augmentation [3] has demonstrated improvements for high-resource languages (English) with back-translation. In this work, we conduct a case study for Vietnamese through the following [Colab Notebook](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Sentiment_Analysis_%2B_Back_translation.ipynb). 
 
 On a Sentiment Analysis dataset with only 10K examples, we use back-translation to double the training set size and obtain an improvement of near 2.5\% in absolute accuracy:
 
