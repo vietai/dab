@@ -76,7 +76,7 @@ We will be working on a more detailed guideline for contribution.
 
 [4] Clark, Kevin, et al. "Semi-supervised sequence modeling with cross-view training.", EMNLP 2018.
 
-# Appendix A: Training Translation Models with `tensor2tensor`
+## Appendix A: Training Translation Models with `tensor2tensor`
 
 :notebook: [Training Translation Models](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/T2T_translate_vi%3C_%3Een_tiny_tpu.ipynb): How to connect to GPU/TPU and Google Drive/Cloud storage, download training/testing data from the internet and train/evaluate your models. We use the IWSLT'15 dataset for the English-Vietnamese pair, off-the-shelf Transformer implementation from `tensor2tensor` with its `transformer_tiny` setting and obtain the following result:
 
@@ -108,19 +108,19 @@ As of this writing, the result above is already competitive with the current sta
 <p align="center"> <img src="gif/attn_viz.gif"/> </p>
 
 
-# Appendix B: Command Syntaxes.
+## Appendix B: Command Syntaxes.
 
 The remaining of this `README` is for those who cannot have access to our Colab Notebooks and/or only need a quick reference to the command syntax of our code.
 
-## Requirements
+### Requirements
 
 We make use of the `tensor2tensor` library to build deep neural networks that perform translation.
 
-## Training the two translation models
+### Training the two translation models
 
 A prerequisite to performing back-translation is to train two translation models: English to Vietnamese and Vietnamese to English. A demonstration of the following commands to generate data, train and evaluate the models can be found in [this Google Colab](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/T2T_translate_vi%3C_%3Een_tiny_tpu.ipynb).
 
-### Generate data (tfrecords)
+#### Generate data (tfrecords)
 
 For English -> Vietnamese
 
@@ -134,7 +134,7 @@ For Vietnamese -> English
 python t2t_datagen.py --data_dir=data/translate_vien_iwslt32k --tmp_dir=tmp/ --problem=translate_vien_iwslt32k
 ```
 
-### Train
+#### Train
 
 Some examples to train your translation models with the Transformer architecture:
 
@@ -150,11 +150,11 @@ For Vietnamese -> English
 python t2t_trainer.py --data_dir=path/to/tfrecords --problem=translate_vien_iwslt32k --hparams_set=transformer_base --model=transformer --output_dir=path/to/ckpt/dir
 ```
 
-### Analyse the trained models
+#### Analyse the trained models
 
 Once you finished training and evaluating the models, you can certainly play around with them a bit. For example, you might want to run some interactive translation and/or visualize the attention masks for your inputs of choice. This is demonstrated in [this Google Colab](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Vietnamese_Backtranslation_Model_Analysis.ipynb).
 
-## Back translate from a text file.
+### Back translate from a text file.
 
 We have trained two translation models (`vien` and `envi`) using the `tiny` setting of `tensor2tensor`'s Transformer, and put it on Google Cloud Storage with public access for you to use.
 
