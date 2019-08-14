@@ -2,7 +2,8 @@
 
 This repository builds on the idea of back translation [1] as a data augmentation method [2, 3]. The idea is simple: translating a sentence in one language to another and then back to the original language. This way one can multiply the size of any NLP dataset. An example using our code is shown below:
 
-<p align="center"> <img src="gif/envien_demo_fast_v3.gif"/> </p>
+<p align="center"> <img src="gif/envien_demo_fast_v3.gif" style="max-width:80%;width: 550px;height: auto;"/> </p>
+
 
 In this project we provide a nice interface for people to investigate back-translation models interactively that works with any `tensor2tensor` checkpoints. Here we provide two sets of trained checkpoints:
 
