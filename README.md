@@ -108,7 +108,7 @@ As of this writing, the result above is already competitive with the current sta
 <p align="center"> <img src="gif/attn_viz.gif"/> </p>
 
 
-## Appendix B: Command Syntaxes.
+## Appendix B: Command Syntax
 
 The remaining of this `README` is for those who cannot have access to our Colab Notebooks and/or only need a quick reference to the command syntax of our code.
 
