@@ -11,7 +11,7 @@ In this project we provide a nice interface for people to investigate back-trans
 
 * English - French: [[en-fr]](https://console.cloud.google.com/storage/browser/vien-translation/checkpoints/translate_enfr_fren_uda/enfr/) [[fr-en]](https://console.cloud.google.com/storage/browser/vien-translation/checkpoints/translate_enfr_fren_uda/fren). This is taken from [github repository of UDA](https://github.com/google-research/uda).
 
-We also provide the option for doing back-translation in batch mode, see [this section](https://github.com/vietai/back_translate#notebook-a-case-study-on-backtranslation-for-low-resource-languages).
+We also provide the option for doing back-translation in batch mode, see [this section](https://github.com/vietai/back_translate#notebook-a-case-study-on-back-translation-for-low-resource-languages).
 
 ## :notebook: Interactive Back-translation.
 
@@ -46,11 +46,11 @@ Here is another GIF demo with Vietnamese sentences - for fun ;)
 
 ## How to contribute? :thinking:
 
-:seedling: More and/or better translation models. Checkout Appendix A for Colab Notebook tutorials on how to train translation models with `tensor2tensor`.
+:seedling: More and/or better translation models. Checkout [Appendix A](https://github.com/vietai/back_translate#appendix-a-training-translation-models-with-tensor2tensor) for Colab Notebook tutorials on how to train translation models with `tensor2tensor`.
 
 :seedling: More and/or better translation data or monolingual data.
 
-:seedling: Code to make our code even easier to use. Including tests ([Travis](https://github.com/marketplace/travis-ci), [CodeCov](https://github.com/codecov)).
+:seedling: Code to make our code even easier to use - including tests ([Travis](https://github.com/marketplace/travis-ci), [CodeCov](https://github.com/codecov)).
 
 :seedling: Texts/Illustrations to make our documentation even easier to understand.
 
