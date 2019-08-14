@@ -10,6 +10,8 @@ In this project we provide a nice interface for people to investigate backtransl
 
 * English - French: [[en-fr]](https://console.cloud.google.com/storage/browser/vien-translation/checkpoints/translate_enfr_fren_uda/enfr/) [[fr-en]](https://console.cloud.google.com/storage/browser/vien-translation/checkpoints/translate_enfr_fren_uda/fren). This is taken from [github repository of UDA](https://github.com/google-research/uda).
 
+We also provide the option for doing back-translation in batch mode.
+
 ## :notebook: Interactive Backtranslation.
 
 We use [this Colab Notebook](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Interactive_Back_Translation.ipynb) to generate the GIF you saw above.
