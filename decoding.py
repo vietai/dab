@@ -30,7 +30,6 @@ FLAGS = flags.FLAGS
 
 
 def create_hp_and_estimator(problem_name, data_dir, checkpoint_path):
-  tf.logging.set_verbosity(tf.logging.INFO)
   trainer_lib.set_random_seed(FLAGS.random_seed)
 
   hp = trainer_lib.create_hparams(
@@ -362,7 +361,6 @@ def decode_from_text_file(estimator,
 def t2t_decoder(problem_name, data_dir, 
                 decode_from_file, decode_to_file,
                 checkpoint_path):
-  tf.logging.set_verbosity(tf.logging.INFO)
   trainer_lib.set_random_seed(FLAGS.random_seed)
 
   hp = trainer_lib.create_hparams(
