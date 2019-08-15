@@ -1,4 +1,4 @@
-# :sparkles: Data Augmentation with Back Translation :sparkles:
+# :sparkles: Data Augmentation by Back Translation :sparkles:
 
 This repository builds on the idea of back translation [1] as a data augmentation method [2, 3]. The idea is simple: translating a sentence in one language to another and then back to the original language. This way one can multiply the size of any NLP dataset. An example using our code is shown below:
 
@@ -17,7 +17,7 @@ We use [this Colab Notebook](https://colab.research.google.com/github/vietai/dab
 
 ## :notebook: A Case Study on Back-translation for Low-resource Languages
 
-Unsupervised Data Augmentation [3] has demonstrated improvements for high-resource languages (English) with back-translation. In this work, we conduct a case study for Vietnamese through the following [Colab Notebook](https://colab.research.google.com/github/vietai/dab/blob/master/colab/Sentiment_Analysis_%2B_Back_translation.ipynb). 
+Unsupervised Data Augmentation [3] has demonstrated improvements for high-resource languages (English) by back-translation. In this work, we conduct a case study for Vietnamese through the following [Colab Notebook](https://colab.research.google.com/github/vietai/dab/blob/master/colab/Sentiment_Analysis_%2B_Back_translation.ipynb). 
 
 On a Sentiment Analysis dataset with only 10K examples, we use back-translation to double the training set size and obtain an improvement of near 2.5\% in absolute accuracy:
 
@@ -165,4 +165,4 @@ python back_translate.py --lang=vi --decode_hparams="beam_size=4,alpha=0.6" --pa
 
 Add `--backtraslate_interactively` to back-translate interactively from your terminal. Alternatively, you can also check out [this Colab](https://colab.research.google.com/github/vietai/dab/blob/master/colabs/Interactive_Back_Translation.ipynb).
 
-For a demonstration of augmenting real datasets with back-translation and obtaining actual gains in accuracy, check out [this Google Colab](https://colab.research.google.com/github/vietai/dab/blob/master/colab/Sentiment_Analysis_%2B_Back_translation.ipynb)!
+For a demonstration of augmenting real datasets by back-translation and obtaining actual gains in accuracy, check out [this Google Colab](https://colab.research.google.com/github/vietai/dab/blob/master/colab/Sentiment_Analysis_%2B_Back_translation.ipynb)!
