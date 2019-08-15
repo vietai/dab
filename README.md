@@ -5,13 +5,11 @@ This repository builds on the idea of back translation [1] as a data augmentatio
 <p align="center"> <img src="gif/envien_demo_fast_v3.gif" width="550" height="341.672" /> </p>
 
 
-In this project we provide a nice interface for people to investigate back-translation models interactively that works with any `tensor2tensor` checkpoints. Here we provide two sets of trained checkpoints:
+In this project we provide a nice interface for people to investigate back-translation models interactively that works with any `tensor2tensor` checkpoints. We also provide the option to perform back-translation in batch mode for back-translating a full dataset, see [this section](https://github.com/vietai/back_translate#notebook-a-case-study-on-back-translation-for-low-resource-languages). Here we provide two sets of trained checkpoints:
 
 * English - Vietnamese: [[en-vi]](https://console.cloud.google.com/storage/browser/vien-translation/checkpoints/translate_envi_iwslt32k_tiny/avg/) [[vi-en]](https://console.cloud.google.com/storage/browser/vien-translation/checkpoints/translate_vien_iwslt32k_tiny/avg/). See [Appendix A](https://github.com/vietai/back_translate#appendix-a-training-translation-models-with-tensor2tensor) for how to train and visualize translation models.
 
 * English - French: [[en-fr]](https://console.cloud.google.com/storage/browser/vien-translation/checkpoints/translate_enfr_fren_uda/enfr/) [[fr-en]](https://console.cloud.google.com/storage/browser/vien-translation/checkpoints/translate_enfr_fren_uda/fren). This is taken from [github repository of UDA](https://github.com/google-research/uda).
-
-We also provide the option for doing back-translation in batch mode, see [this section](https://github.com/vietai/back_translate#notebook-a-case-study-on-back-translation-for-low-resource-languages).
 
 ## :notebook: Interactive Back-translation.
 
@@ -46,7 +44,7 @@ Here is another GIF demo with Vietnamese sentences - for fun ;)
 
 ## How to contribute? :thinking:
 
-:seedling: More and/or better translation models. Checkout [Appendix A](https://github.com/vietai/back_translate#appendix-a-training-translation-models-with-tensor2tensor) for Colab Notebook tutorials on how to train translation models with `tensor2tensor`.
+:seedling: More and/or better translation models. Check out [Appendix A](https://github.com/vietai/back_translate#appendix-a-training-translation-models-with-tensor2tensor) for Colab Notebook tutorials on how to train translation models with `tensor2tensor`.
 
 :seedling: More and/or better translation data or monolingual data.
 
@@ -167,4 +165,4 @@ python back_translate.py --lang=vi --decode_hparams="beam_size=4,alpha=0.6" --pa
 
 Add `--backtraslate_interactively` to back-translate interactively from your terminal. Alternatively, you can also check out [this Colab](https://colab.research.google.com/github/vietai/back_translate/blob/master/colabs/Interactive_Back_Translation.ipynb).
 
-For a demonstration of augmenting real datasets with back-translation and obtaining actual gains in accuracy, checkout [this Google Colab](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Sentiment_Analysis_%2B_Back_translation.ipynb)!
+For a demonstration of augmenting real datasets with back-translation and obtaining actual gains in accuracy, check out [this Google Colab](https://colab.research.google.com/github/vietai/back_translate/blob/master/colab/Sentiment_Analysis_%2B_Back_translation.ipynb)!
