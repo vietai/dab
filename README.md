@@ -7,7 +7,7 @@ This repository builds on the idea of back translation [1] as a data augmentatio
 
 In this project we provide a nice interface for people to investigate back-translation models interactively that works with any `tensor2tensor` checkpoints. We also provide the option to perform back-translation in batch mode for back-translating a full dataset, see [this section](https://github.com/vietai/back_translate#notebook-a-case-study-on-back-translation-for-low-resource-languages). Here we provide two sets of trained checkpoints:
 
-* English - Vietnamese: [[en-vi]](https://console.cloud.google.com/storage/browser/vien-translation/checkpoints/translate_envi_iwslt32k_tiny/avg/) [[vi-en]](https://console.cloud.google.com/storage/browser/vien-translation/checkpoints/translate_vien_iwslt32k_tiny/avg/). See [Appendix A](https://github.com/vietai/back_translate#appendix-a-training-translation-models-with-tensor2tensor) for how to train and visualize translation models.
+* English - Vietnamese: [[en-vi]](https://console.cloud.google.com/storage/browser/vien-translation/checkpoints/translate_envi_iwslt32k_tiny/avg/) [[vi-en]](https://console.cloud.google.com/storage/browser/vien-translation/checkpoints/translate_vien_iwslt32k_tiny/avg/). See [Appendix A](https://github.com/vietai/back_translate#appendix-a-training-translation-models-with-tensor2tensor) for how to train and visualize your own translation models.
 
 * English - French: [[en-fr]](https://console.cloud.google.com/storage/browser/vien-translation/checkpoints/translate_enfr_fren_uda/enfr/) [[fr-en]](https://console.cloud.google.com/storage/browser/vien-translation/checkpoints/translate_enfr_fren_uda/fren). This is taken from [github repository of UDA](https://github.com/google-research/uda).
 
