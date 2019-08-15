@@ -59,7 +59,7 @@ We will be working on a more detailed guideline for contribution.
 ```
 @article{trieu19backtranslate,
   author  = {Trieu H. Trinh and Thang Le and Phat Hoang and Minh{-}Thang Luong},
-  title   = {Back Translation as Data Augmentation Tutorial},
+  title   = {A Tutorial on Data Augmentation by Backtranslation (DAB)},
   journal = {https://github.com/vietai/dab},
   year    = {2019},
 }
