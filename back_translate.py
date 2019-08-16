@@ -59,6 +59,9 @@ FLAGS = tf.flags.FLAGS
 
 if __name__ == '__main__':
   # Convert directory into checkpoints
+  from_ckpt = FLAGS.from_ckpt
+  to_ckpt = FLAGS.to_ckpt
+
   if tf.gfile.IsDirectory(FLAGS.from_ckpt):
     from_ckpt = tf.train.latest_checkpoint(FLAGS.from_ckpt)
   if tf.gfile.IsDirectory(FLAGS.to_ckpt):
@@ -79,9 +82,9 @@ if __name__ == '__main__':
     # Step 1: Translating from source language to the other language.
     decoding.t2t_decoder(FLAGS.from_problem, FLAGS.from_data_dir,
                          FLAGS.paraphrase_from_file, tmp_file,
-                         FLAGS.from_ckpt)
+                         from_ckpt)
 
     # Step 2: Translating from the other language (tmp_file) to source.
     decoding.t2t_decoder(FLAGS.to_problem, FLAGS.to_data_dir,
                          tmp_file, FLAGS.paraphrase_to_file,
-                         FLAGS.to_ckpt)
+                         to_ckpt)
