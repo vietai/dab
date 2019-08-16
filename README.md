@@ -160,7 +160,7 @@ We have trained two translation models (`vien` and `envi`) using the `tiny` sett
 Here is an example of back translating Vietnamese -> English -> Vietnamese from an input text file.
 
 ```
-python back_translate.py --lang=vi --decode_hparams="beam_size=4,alpha=0.6" --paraphrase_from_file=test_input.vi --paraphrase_to_file=test_output.vi --model=transformer --hparams_set=transformer_tiny
+python back_translate.py --decode_hparams="beam_size=4,alpha=0.6" --paraphrase_from_file=test_input.vi --paraphrase_to_file=test_output.vi --model=transformer --hparams_set=transformer_tiny
 ```
 
 Add `--backtraslate_interactively` to back-translate interactively from your terminal. Alternatively, you can also check out [this Colab](https://colab.research.google.com/github/vietai/dab/blob/master/colabs/Interactive_Back_Translation.ipynb).
