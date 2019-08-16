@@ -19,27 +19,27 @@ registry = problems.registry
 tf.flags.DEFINE_string(
     'from_problem', 
     'translate_vien_iwslt32k', 
-    'Problem name for Vietnamese to English translation.')
+    'Problem name for source to intermediate language translation.')
 tf.flags.DEFINE_string(
     'to_problem', 
     'translate_envi_iwslt32k', 
-    'Problem name for English to Vietnamese translation.')
+    'Problem name for intermediate to source language translation.')
 tf.flags.DEFINE_string(
     'from_data_dir', 
     'gs://vien-translation/data/translate_vien_iwslt32k', 
-    'Data directory for Vietnamese to English translation.')
+    'Data directory for source to intermediate language translation.')
 tf.flags.DEFINE_string(
     'to_data_dir', 
     'gs://vien-translation/data/translate_envi_iwslt32k', 
-    'Data directory for English to Vietnamese translation.')
+    'Data directory for intermediate to source language translation.')
 tf.flags.DEFINE_string(
     'from_ckpt', 
     'gs://vien-translation/checkpoints/translate_vien_iwslt32k_tiny/avg/', 
-    'Pretrain checkpoint directory for Vietnamese to English translation.')
+    'Pretrain checkpoint directory for source to intermediate language translation.')
 tf.flags.DEFINE_string(
     'to_ckpt', 
     'gs://vien-translation/checkpoints/translate_envi_iwslt32k_tiny/avg/', 
-    'Pretrain checkpoint directory for English to Vietnamese translation.')
+    'Pretrain checkpoint directory for intermediate to source language translation.')
 tf.flags.DEFINE_string(
     'paraphrase_from_file', 
     'test_input.vi', 
