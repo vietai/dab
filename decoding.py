@@ -29,7 +29,8 @@ flags = tf.flags
 FLAGS = flags.FLAGS
 
 
-def create_hp_and_estimator(problem_name, data_dir, checkpoint_path):
+def create_hp_and_estimator(
+    problem_name, data_dir, checkpoint_path, decode_to_file=None):
   trainer_lib.set_random_seed(FLAGS.random_seed)
 
   hp = trainer_lib.create_hparams(
@@ -43,7 +44,7 @@ def create_hp_and_estimator(problem_name, data_dir, checkpoint_path):
   decode_hp.shard_id = FLAGS.worker_id
   decode_in_memory = FLAGS.decode_in_memory or decode_hp.decode_in_memory
   decode_hp.decode_in_memory = decode_in_memory
-  decode_hp.decode_to_file = None
+  decode_hp.decode_to_file = decode_to_file
   decode_hp.decode_reference = None
 
   FLAGS.checkpoint_path = checkpoint_path
@@ -364,29 +365,8 @@ def decode_from_text_file(estimator,
 def t2t_decoder(problem_name, data_dir, 
                 decode_from_file, decode_to_file,
                 checkpoint_path):
-  trainer_lib.set_random_seed(FLAGS.random_seed)
-
-  hp = trainer_lib.create_hparams(
-      FLAGS.hparams_set,
-      FLAGS.hparams,
-      data_dir=os.path.expanduser(data_dir),
-      problem_name=problem_name)
-
-  decode_hp = decoding.decode_hparams(FLAGS.decode_hparams)
-  decode_hp.shards = FLAGS.decode_shards
-  decode_hp.shard_id = FLAGS.worker_id
-  decode_in_memory = FLAGS.decode_in_memory or decode_hp.decode_in_memory
-  decode_hp.decode_in_memory = decode_in_memory
-  decode_hp.decode_to_file = decode_to_file
-  decode_hp.decode_reference = None
-
-  FLAGS.checkpoint_path = checkpoint_path
-  estimator = trainer_lib.create_estimator(
-      FLAGS.model,
-      hp,
-      t2t_trainer.create_run_config(hp),
-      decode_hparams=decode_hp,
-      use_tpu=FLAGS.use_tpu)
+  hp, decode_hp, estimator = create_hp_and_estimator(
+      problem_name, data_dir, checkpoint_path, decode_to_file)
 
   decode_from_text_file(
       estimator, problem_name,
