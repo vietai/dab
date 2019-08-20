@@ -65,7 +65,7 @@ We will be working on a more detailed guideline for contribution.
 }
 ```
 
-## References :cherry_blossom:
+## References
 
 [1] Sennrich, Rico, Barry Haddow, and Alexandra Birch. "Improving neural machine translation models with monolingual data.", ACL 2016.
 
