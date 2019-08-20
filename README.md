@@ -54,7 +54,7 @@ Here is another GIF demo with Vietnamese sentences - for fun ;)
 
 We will be working on a more detailed guideline for contribution.
 
-## :honeybee:  BibTex :honeybee:
+## BibTex :honeybee:
 
 ```
 @article{trieu19backtranslate,
@@ -65,7 +65,7 @@ We will be working on a more detailed guideline for contribution.
 }
 ```
 
-## :cherry_blossom: References :cherry_blossom:
+## References :cherry_blossom:
 
 [1] Sennrich, Rico, Barry Haddow, and Alexandra Birch. "Improving neural machine translation models with monolingual data.", ACL 2016.
 
